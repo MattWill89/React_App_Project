@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './styles/AddCarForm.css';
+import '../assets/styles/AddCarForm.css';
 
-const AddCarForm = ({ onAddCar }) => {
+const AddCarForm = ({ onAddCar, onDeleteCar }) => {
   const [make, setMake] = useState('');
   const [model, setModel] = useState('');
   const [year, setYear] = useState('');
@@ -23,6 +23,10 @@ const AddCarForm = ({ onAddCar }) => {
     setModel('');
     setYear('');
     setColor('');
+  };
+
+  const handleDelete = () => {
+    onDeleteCar(); // Call the onDeleteCar function provided by the parent component
   };
 
   return (
@@ -47,6 +51,10 @@ const AddCarForm = ({ onAddCar }) => {
         </div>
         <button type="submit">Add Car</button>
       </form>
+      <div>
+        <h2>Delete Car</h2>
+        <button onClick={handleDelete}>Delete Car</button>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import './styles/AddCarForm.css';
+import '../assets/styles/AddCarForm.css';
 
-const AddCarForm = ({ onAddCar, onDeleteCar }) => {
+import { Link } from 'react-router-dom';
+
+const AddCarForm = ({ onAddCar }) => {
   const [make, setMake] = useState('');
   const [model, setModel] = useState('');
   const [year, setYear] = useState('');
@@ -25,14 +27,11 @@ const AddCarForm = ({ onAddCar, onDeleteCar }) => {
     setColor('');
   };
 
-  const handleDelete = () => {
-    onDeleteCar(); // Call the onDeleteCar function provided by the parent component
-  };
-
   return (
     <div>
+      <Link to="/datatable">Show Cars</Link>
       <h2>Add Car</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="add-car-form">
         <div>
           <label>Make:</label>
           <input type="text" value={make} onChange={(e) => setMake(e.target.value)} />
@@ -51,10 +50,6 @@ const AddCarForm = ({ onAddCar, onDeleteCar }) => {
         </div>
         <button type="submit">Add Car</button>
       </form>
-      <div>
-        <h2>Delete Car</h2>
-        <button onClick={handleDelete}>Delete Car</button>
-      </div>
     </div>
   );
 };

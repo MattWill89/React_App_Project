@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/SignOut.css'; // Import CSS file
+import '../assets/styles/SignOut.css'; // Import CSS file
 
 const SignOut = ({ onSignOut }) => {
   return (

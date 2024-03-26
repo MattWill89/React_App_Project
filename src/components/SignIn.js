@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './styles/SignIn.css'; // Import CSS file
+import '../assets/styles/SignIn.css'; // Import CSS file
 
-const SignIn = ({ onSignIn }) => {
+const SignIn = ({ onSignIn, errorMessage }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -9,6 +9,7 @@ const SignIn = ({ onSignIn }) => {
     e.preventDefault();
     // Implement sign-in logic
     onSignIn(email, password);
+    
     // Reset form fields
     setEmail('');
     setPassword('');
@@ -28,6 +29,7 @@ const SignIn = ({ onSignIn }) => {
         </div>
         <button type="submit">Sign In</button>
       </form>
+      <p style={{color: "red", textAlign: "center"}}>{ errorMessage }</p>
     </div>
   );
 };
